@@ -50,12 +50,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Darth Vader's Todo List ▼皿▼</h1>
+      <h1>Darth Vader's Todo List [▼皿▼]</h1>
       <p>I really must remember to...</p>
       <hr />
       <TodoList todos={todos} removeTodo={removeTodo} />
       <hr />
-      <input ref={inputValueRef} type="text" ></input><button
+      <input ref={inputValueRef} onKeyDown={(e) => { if (e.key === 'Enter') handleAddTodo() }} type="text" ></input><button
         onClick={handleAddTodo}>Add Todo</button><button onClick={handleClearAll}>Clear All</button>
     </div>
   );
