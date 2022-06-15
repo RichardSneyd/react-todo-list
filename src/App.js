@@ -35,11 +35,6 @@ function App() {
     document.title = `${todos.length} todos left`;
   }, [todos]);
 
-  useEffect(() => {
-    console.log(`todoId: `, todoId);
-    console.log(`todos: `, todos);
-  }, [todos, todoId]);
-
   const handleClearAll = (e) => {
     setTodos((prev) => []);
   }
