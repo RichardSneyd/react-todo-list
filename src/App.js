@@ -6,14 +6,14 @@ import initialTodos from './json/startData.json';
 
 function App() {
   const [todos, setTodos] = usePersistedState('todos', initialTodos);
-  const [todoId, setTodoId] = usePersistedState('todoId', initialTodos.length);
+  const [nextTodoId, setNextTodoId] = usePersistedState('todoId', initialTodos.length);
   const inputValueRef = useRef();
 
   const handleAddTodo = () => {
     const name = inputValueRef.current.value;
     if (name === '') return;
-    setTodos(prevTodos => [...prevTodos, { name: name, id: todoId }]);
-    setTodoId(id => id += 1);
+    setTodos(prevTodos => [...prevTodos, { name: name, id: nextTodoId }]);
+    setNextTodoId(id => id += 1);
     inputValueRef.current.value = '';
   }
 
