@@ -2,25 +2,11 @@ import './App.css';
 import TodoList from './components/TodoList';
 import { useRef, useEffect } from 'react';
 import usePersistedState from './hooks/usePersistedState';
+import initialTodos from './json/startData.json';
 
 function App() {
-  // todo objects follow the format: {name, id}
-  const initialTodos = [
-    {
-      name: "Eat a bantha",
-      id: 0
-    },
-    {
-      name: "Build deathstar",
-      id: 1
-    },
-    {
-      name: "Drink dark-side ale",
-      id: 2
-    }
-  ];
   const [todos, setTodos] = usePersistedState('todos', initialTodos);
-  const [todoId, setTodoId] = usePersistedState('todoId', 3);
+  const [todoId, setTodoId] = usePersistedState('todoId', initialTodos.length);
   const inputValueRef = useRef();
 
   const handleAddTodo = () => {
